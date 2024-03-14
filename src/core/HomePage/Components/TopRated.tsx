@@ -3,14 +3,14 @@ import Carousel from "../../../components/Carousel";
 import { useGetTopRatedMovies } from "./home.query";
 
 const TopRated = () => {
-  const {data}=useGetTopRatedMovies()
-  console.log(data, "vv");
+  const { data } = useGetTopRatedMovies();
+  console.log(data,'toprated')
   return (
     <div className="bg-wrapperCard p-2">
-      <h1 className="text-onSurfaceVariant">TOP RATED</h1>
+      <h1 className="text-onSurfaceVariant text-center my-6">TOP RATED</h1>
       <Carousel
         mousewheel
-        slidesPerView={'auto'}
+        slidesPerView={"auto"}
         grabCursor
         spaceBetween={8}
         freeMode
@@ -21,7 +21,7 @@ const TopRated = () => {
         {data?.results?.map((item) => {
           return (
             <Carousel.Slide key={item.id} className="max-w-max">
-              <Card item={item}/>
+              <Card item={item} />
             </Carousel.Slide>
           );
         })}

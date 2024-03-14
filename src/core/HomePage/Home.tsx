@@ -6,7 +6,7 @@ import Upcoming from './Components/Upcoming'
 const Home = () => {
   return (
     <>
-      <NowShowing/>
+      {/* <NowShowing/> */}
       <Upcoming/>
       <TopRated/>
     </>

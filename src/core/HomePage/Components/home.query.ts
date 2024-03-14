@@ -47,6 +47,7 @@ export const useGetTopRatedMovies = () => {
     },
   });
 };
+
 export const useGetUpcomingMovies = () => {
   return useQuery({
     queryKey: [movieRequest.getUpcomingMovies.actionName],
