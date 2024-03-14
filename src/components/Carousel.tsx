@@ -21,7 +21,6 @@ const Carousel: FC<CarouselProps> & { Slide: FC<SwiperSlideProps> } = (props) =>
     ...restProps
   } = props;
 
-  const navClass = `rounded-full bg-white !p-2 disabled:bg-gray-200 shadow !h-fit !w-fit}`;
 
   return (
     <Swiper
@@ -34,8 +33,8 @@ const Carousel: FC<CarouselProps> & { Slide: FC<SwiperSlideProps> } = (props) =>
       {children}
       {showButton ? (
         <>
-          <div role="button" className={`swiper-button-prev left-0 ${navClass}`} />
-          <div role="button" className={`swiper-button-next right-0 ${navClass}`} />
+          <div role="button" className={`swiper-button-prev left-0 `} />
+          <div role="button" className={`swiper-button-next right-0 `} />
         </>
       ) : null}
     </Swiper>

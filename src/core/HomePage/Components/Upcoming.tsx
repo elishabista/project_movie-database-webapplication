@@ -6,8 +6,8 @@ const Upcoming = () => {
   const {data}=useGetUpcomingMovies()
   console.log(data, "upcoming");
   return (
-    <div className="bg-wrapperCard p-2">
-    <h1 className="text-onSurfaceVariant text-center my-6">UPCOMING MOVIE </h1>
+    <div className="bg-wrapperCard rounded-3xl mt-6">
+    <h1 className="text-onSurfaceVariant text-center my-4">UPCOMING MOVIE </h1>
     <Carousel
       mousewheel
       slidesPerView={"auto"}
@@ -20,7 +20,7 @@ const Upcoming = () => {
     >
       {data?.results?.map((item) => {
         return (
-          <Carousel.Slide key={item.id} className="max-w-max">
+          <Carousel.Slide key={item.id} className="max-w-max cursor-pointer">
             <Card item={item} />
           </Carousel.Slide>
         );

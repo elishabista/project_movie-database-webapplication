@@ -11,7 +11,7 @@ const Card = ({  item }: CardProps) => {
   return (
     <>
       <div
-        className="bg-surface shadow-md p-4 rounded-lg inline-block max-w-[315px] "
+        className="bg-surface shadow-md p-4 rounded-lg inline-block w-[260px] hover:cursor-pointer"
         onClick={() =>
           navigate(`/movie/${item?.id}`, { state: { movieDetails: item } })
         }
@@ -24,11 +24,11 @@ const Card = ({  item }: CardProps) => {
 
         <div className="p-4 -0">
           <div className="table w-full">
-            <a href="#">
+           
               <h3 className="text-xl	 m-0 table-cell text-left text-onSurfaceVariant">
                 {item?.original_title}
               </h3>
-            </a>
+          
             <p className="block text-xs text-onSurfaceVariant"> {item?.release_date}</p>
             <div className="imax-logo"></div>
           </div>

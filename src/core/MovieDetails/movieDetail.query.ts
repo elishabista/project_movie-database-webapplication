@@ -8,7 +8,11 @@ const movieDetail = {
     actionName: "GET_MOVIE_DETAILS_BY_ID",
     requestMethod: "GET",
   },
-
+  getTrendingMovies: {
+    controllerName: "/movie/trending",
+    actionName: "GET_TRENDING_MOVIES",
+    requestMethod: "GET",
+  },
 };
 
 export const useGetMovieDetailsById = (id: string | number) => {
@@ -26,5 +30,16 @@ export const useGetMovieDetailsById = (id: string | number) => {
     enabled: !!id,
   });
 };
-
-
+export const useGetTrendingMovies = () => {
+  return useQuery({
+    queryKey: [movieDetail.getTrendingMovies.actionName],
+    queryFn() {
+      return ApiRequest<MovieDetailsById>({
+        apiDetails: movieDetail.getTrendingMovies,
+      });
+    },
+    select(data) {
+      return data?.data;
+    },
+  });
+};
