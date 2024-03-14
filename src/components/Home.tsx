@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
+import Card from './Card'
 
 const Home = () => {
     const fetchSuperHeroes=()=>{
@@ -9,7 +10,9 @@ const Home = () => {
     if(isLoading) return <h2>Loading</h2>
     console.log(data,'data')
   return (
-    <div>Home</div>
+    <div>
+        <Card />
+    </div>
   )
 }
 
