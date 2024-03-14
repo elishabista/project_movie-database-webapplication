@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useQuery } from 'react-query'
 import Navbar from './Navbar'
+import Card from './Card'
 
 const Home = () => {
     const fetchSuperHeroes=()=>{
@@ -13,6 +14,7 @@ const Home = () => {
   return (
     <div>
         <Navbar  />
+        <Card />
     </div>
   )
 }
