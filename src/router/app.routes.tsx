@@ -1,11 +1,12 @@
 import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import MovieDetail from "../core/MovieDetails/MovieDetail";
 
 const Layout = lazy(() => import("../core/Layout"));
 
 const Home = lazy(() => import("../core/HomePage/Home"));
 const Error = lazy(() => import("../components/Error"));
-const MovieDetail = lazy(() => import("../core/MovieDetails/MovieDetail"));
+
 
 export const router = createBrowserRouter([
   {
