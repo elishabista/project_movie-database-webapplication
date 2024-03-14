@@ -1,14 +1,30 @@
 import './App.css'
-import Card from './components/Card'
+import Home from "./components/Home";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import MovieDetail from './components/MovieDetail';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path:"movie/:id",
+    element:<MovieDetail/>
+  }
+]);
+
+
 
 function App() {
 
 
   return (
-    <>
-      <p>Hello World</p>
-      <Card />
-    </>
+    <RouterProvider router={router} />
+
   )
 }
 
