@@ -1,4 +1,3 @@
-import React from 'react'
 import NowShowing from './Components/NowShowing'
 import TopRated from './Components/TopRated'
 import Upcoming from './Components/Upcoming'
@@ -6,7 +5,7 @@ import Upcoming from './Components/Upcoming'
 const Home = () => {
   return (
     <>
-      {/* <NowShowing/> */}
+      <NowShowing/>
       <Upcoming/>
       <TopRated/>
     </>

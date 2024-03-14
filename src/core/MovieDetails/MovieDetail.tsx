@@ -1,26 +1,35 @@
 import { useParams } from "react-router-dom";
-import { useGetMovieDetailsById } from "./movieDetail.query";
+import { useGetMovieDetailsById, useGetTrendingMovies } from "./movieDetail.query";
 import MovieDetailsLoading from "./MovieDetailsLoading";
-import movieImg from "../../assets/img/movie.jpg";
+import { imageUrlSmall } from "../../constatnts/constants";
 
 const MovieDetail = () => {
   const { id, movieDetails } = useParams();
 
   const { data, isLoading } = useGetMovieDetailsById(id ?? "");
-  console.log(data, isLoading, movieDetails, "aaa");
+  const {data:trendingMoviesData,isLoading:trendingLoading} =useGetTrendingMovies()
+  console.log(data, trendingMoviesData, movieDetails, "aaa");
   if (isLoading) {
     return <MovieDetailsLoading />;
   }
   return (
-    <div
-      className="bg-cover bg-center h-[630px]"
-      style={{ backgroundImage: `url(${movieImg})` }}
-    >
-<div className="movie-content ml-8 pt-10">
-
-<p>dnvfdk</p>
-</div>
-    </div>
+    <>
+      <div className="p-6">
+        <div className="grid grid-cols-3 gap-4">
+          <div className=" p-4 col-span-2">
+            <img
+          src={`${imageUrlSmall}${data?.poster_path}`}
+          alt="Movie Image"
+          className="object-contain object-center w-full h-[600px]"
+        />
+          </div>
+          <div className="p-4">
+          <h1 className="text-white text-center my-6">TRENDING </h1>
+        
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
