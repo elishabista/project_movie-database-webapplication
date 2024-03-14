@@ -7,7 +7,7 @@ const TopRated = () => {
   console.log(data, "vv");
   return (
     <div className="bg-wrapperCard p-2">
-      <h1 className="text-onSurfaceVariant">Top rated</h1>
+      <h1 className="text-onSurfaceVariant">TOP RATED</h1>
       <Carousel
         mousewheel
         slidesPerView={'auto'}
