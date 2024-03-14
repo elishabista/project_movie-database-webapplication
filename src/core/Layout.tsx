@@ -6,6 +6,7 @@ const Layout = () => {
   return (
     <div className="bg-background h-full w-full">
       <Navbar />
+  
       <Outlet />
     </div>
   );

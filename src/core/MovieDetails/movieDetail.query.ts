@@ -8,13 +8,7 @@ const movieDetail = {
     actionName: "GET_MOVIE_DETAILS_BY_ID",
     requestMethod: "GET",
   },
-  getTopRatedMovie: {
-    controllerName:
-      "/movie/top_rated?api_key=9a1f0154eb285e11c3dbc34456557692",
 
-    actionName: "GET_MOVIE_DETAILS_BY_ID",
-    requestMethod: "GET",
-  },
 };
 
 export const useGetMovieDetailsById = (id: string | number) => {
@@ -33,18 +27,4 @@ export const useGetMovieDetailsById = (id: string | number) => {
   });
 };
 
-export const useGetTopRatedMovies = () => {
-  return useQuery({
-    queryKey: [movieDetail.getTopRatedMovie.actionName],
-    queryFn() {
-      return ApiRequest<MovieDetailsById>({
-        apiDetails: movieDetail.getTopRatedMovie,
-     
-      });
-    },
-    select(data) {
-      return data?.data;
-    },
-  
-  });
-};
+
