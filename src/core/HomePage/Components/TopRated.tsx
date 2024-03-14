@@ -1,26 +1,32 @@
 import Card from "../../../components/Card";
-import { useGetTopRatedMovies } from "../../MovieDetails/movieDetail.query";
+import Carousel from "../../../components/Carousel";
+import { useGetTopRatedMovies } from "./home.query";
 
 const TopRated = () => {
-  const { data } = useGetTopRatedMovies();
-  console.log(data?.results, "moviedata");
+  const {data}=useGetTopRatedMovies()
+  console.log(data, "vv");
   return (
-    <>
-      <h2 className="text-center font-semibold mt-6 text-xl">TOP RATED MOVIES</h2>
-      {data?.results?.map((item: any) => {
-        return (
-       
-          <Card
-            id={278}
-            imgSrc="/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg"
-            item={item}
-          />
-   
-        );
-      })}
-  
-
-    </>
+    <div className="bg-wrapperCard p-2">
+      <h1 className="text-onSurfaceVariant">Top rated</h1>
+      <Carousel
+        mousewheel
+        slidesPerView={'auto'}
+        grabCursor
+        spaceBetween={8}
+        freeMode
+        navigation
+        pagination={{ clickable: true }}
+        autoplay
+      >
+        {data?.results?.map((item) => {
+          return (
+            <Carousel.Slide key={item.id} className="max-w-max">
+              <Card item={item}/>
+            </Carousel.Slide>
+          );
+        })}
+      </Carousel>
+    </div>
   );
 };
 
