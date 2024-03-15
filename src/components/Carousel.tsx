@@ -24,6 +24,7 @@ const Carousel: FC<CarouselProps> & { Slide: FC<SwiperSlideProps> } = (props) =>
 
   return (
     <Swiper
+   
       navigation={{ enabled: navigation, prevEl: ".swiper-button-prev", nextEl: ".swiper-button-next" }}
       pagination={pagination ?? { clickable: true }}
       modules={[Navigation, Pagination, Autoplay, A11y, ...modules]}

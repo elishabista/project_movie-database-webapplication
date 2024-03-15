@@ -9,7 +9,7 @@ const movieDetail = {
     requestMethod: "GET",
   },
   getTrendingMovies: {
-    controllerName: "/movie/trending",
+    controllerName: "trending/movie/day",
     actionName: "GET_TRENDING_MOVIES",
     requestMethod: "GET",
   },
@@ -34,7 +34,7 @@ export const useGetTrendingMovies = () => {
   return useQuery({
     queryKey: [movieDetail.getTrendingMovies.actionName],
     queryFn() {
-      return ApiRequest<MovieDetailsById>({
+      return ApiRequest<any>({
         apiDetails: movieDetail.getTrendingMovies,
       });
     },
