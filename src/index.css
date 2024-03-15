@@ -2,3 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background: #000000;
+}
+/* WebKit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(173, 181, 189, 0.8);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    /* background: #ffffff; */
+    border-radius: 4px;
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(173, 181, 189, 0.8) #e9ecef;
+}
+
+html::-moz-scrollbar-thumb {
+    background-color: rgba(173, 181, 189, 0.8);
+    border-radius: 4px;
+}
+
+html::-moz-scrollbar-track {
+    /* background-color: #e9ecef; */
+    border-radius: 4px;
+}

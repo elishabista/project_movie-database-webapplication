@@ -2,10 +2,12 @@ import { useGetNowPlayingMovies } from "./home.query";
 import Carousel from "../../../components/Carousel";
 import { useNavigate } from "react-router-dom";
 import { imageUrl } from "../../../constatnts/constants";
+import Spinner from "../../../components/Spinner";
 
 const NowShowing = () => {
-  const { data } = useGetNowPlayingMovies();
+  const { data,isLoading } = useGetNowPlayingMovies();
   const navigate=useNavigate()
+  if(isLoading) return <Spinner />
   return (
       <Carousel
         mousewheel
