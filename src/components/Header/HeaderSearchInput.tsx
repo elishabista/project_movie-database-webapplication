@@ -3,9 +3,9 @@ import { forwardRef, Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { useGetSearchMoviesByValue } from "./header.query";
 import { useNavigate } from "react-router-dom";
-import useDebounce from "../hooks/useDebounce";
-import { imageUrlSmall } from "../constatnts/constants";
 import { AiOutlineSearch } from "react-icons/ai";
+import { imageUrlSmall } from "../../constatnts/constants";
+import useDebounce from "../../hooks/useDebounce";
 
 
 interface Props {
