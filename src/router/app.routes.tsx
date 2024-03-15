@@ -4,13 +4,10 @@ import Home from "../core/HomePage/Home";
 import Error from "../components/Error";
 import Layout from "../core/Layout";
 
-
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout  />,
+    element: <Layout />,
     errorElement: <Error />,
     children: [
       { path: "/", element: <Home /> },
