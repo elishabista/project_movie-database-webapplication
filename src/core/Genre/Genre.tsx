@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useDiscoverMovies, useGetGenreList } from "./genre.query";
 import Spinner from "../../components/Spinner";
 import Pagination from "../../components/Pagination";
