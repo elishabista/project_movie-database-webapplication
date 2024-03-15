@@ -34,12 +34,15 @@ export const useGetNowPlayingMovies = () => {
         },
     });
 };
-export const useGetTopRatedMovies = () => {
+export const useGetTopRatedMovies = (currentPage=1) => {
   return useQuery({
-    queryKey: [movieRequest.getTopRatedMovies.actionName],
+    queryKey: [movieRequest.getTopRatedMovies.actionName,currentPage],
     queryFn() {
       return ApiRequest<TopRatedMovieResponse>({
         apiDetails: movieRequest.getTopRatedMovies,
+        params:{
+          page:currentPage
+        }
       });
     },
     select(data) {
@@ -48,12 +51,15 @@ export const useGetTopRatedMovies = () => {
   });
 };
 
-export const useGetUpcomingMovies = () => {
+export const useGetUpcomingMovies = (currentPage=1) => {
   return useQuery({
-    queryKey: [movieRequest.getUpcomingMovies.actionName],
+    queryKey: [movieRequest.getUpcomingMovies.actionName,currentPage],
     queryFn() {
       return ApiRequest<CommonMovieResponse>({
         apiDetails: movieRequest.getUpcomingMovies,
+        params:{
+          page:currentPage
+        }
       });
     },
     select(data) {
