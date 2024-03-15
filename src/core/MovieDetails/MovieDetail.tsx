@@ -3,19 +3,25 @@ import {
   useGetMovieDetailsById,
   useGetTrendingMovies,
 } from "./movieDetail.query";
-import MovieDetailsLoading from "./MovieDetailsLoading";
-import { imageUrlSmall } from "../../constatnts/constants";
 
+import { imageUrlSmall } from "../../constatnts/constants";
+import Spinner from "../../components/Spinner";
 
 const MovieDetail = () => {
   const { id } = useParams();
 
   const { data, isLoading } = useGetMovieDetailsById(id ?? "");
-  const { data: trendingMoviesData } =
-    useGetTrendingMovies();
+  const { data: trendingMoviesData } = useGetTrendingMovies();
   console.log(data);
+   const convertRuntime = (runtime)=>{
+    const hours = Math.floor(runtime / 60);
+    const minutes = runtime % 60;
+    return `${hours}h ${minutes}m`;
+
+
+   }
   if (isLoading) {
-    return <MovieDetailsLoading />;
+    return <Spinner />;
   }
   return (
     <>
@@ -45,13 +51,15 @@ const MovieDetail = () => {
                   {data?.overview}
                 </p>
 
-               
                 <div className="flex mt-2">
-                <p className="text-white mr-4 text-sm	"> Production Countries:</p>
+                  <p className="text-white mr-4 text-sm	">
+                   
+                   Genres:
+                  </p>
                   {data?.genres?.map((item) => {
                     return (
                       <span
-                        className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
+                        className="bg-primary text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-primary dark:text-gray-300"
                         key={item?.id}
                       >
                         {item?.name}
@@ -60,24 +68,30 @@ const MovieDetail = () => {
                   })}
                 </div>
                 <div className="flex ">
-                <span className="text-white mt-1 text-xs mr-3">
-                  Vote Count: {data?.vote_count}
-                </span>
-                <span className="text-white mt-1 text-xs">
-                  Status: {data?.status}
-                </span>
+                  <span className="text-white mt-1 text-xs mr-3">
+                    Vote Count: {data?.vote_count}
+                  </span>
+                  <span className="text-white mt-1 text-xs">
+                    Status: {data?.status}
+                  </span>
                 </div>
-                <p className="mt-2 text-white text-xs"> Release Date: {data?.release_date}</p>
-                <p className="mt-2 text-white text-xs"> Can be seen By: {data?.adult ? "Adult":"All"}</p>
-                
-                
+                <p className="mt-2 text-white text-xs">
+                  {" "}
+                  Release Date: {data?.release_date}
+                </p>
+                <p className="mt-2 text-white text-xs">
+                  {" "}
+                  Can be seen By: {data?.adult ? "Adult" : "All"}
+                </p>
+                <p className="mt-2 text-white text-xs">
+                  
+                  Run Time: {convertRuntime(data?.runtime)}
+                </p>
               </div>
             </a>
           </div>
           <div className="bg-wrapperCard p-2 rounded-3xl ">
-            <h1 className="text-onSurfaceVariant text-center mb-2">
-              TRENDING
-            </h1>
+            <h1 className="text-onSurfaceVariant text-center mb-2">TRENDING</h1>
             {trendingMoviesData?.results?.slice(0, 3)?.map((item) => {
               return (
                 <div className="bg-surface shadow-md p-4 rounded-lg inline-block w-full hover:cursor-pointer">
@@ -97,8 +111,6 @@ const MovieDetail = () => {
                         {" "}
                         {item?.release_date}
                       </p>
-                      
-                  
                     </div>
                   </div>
                 </div>

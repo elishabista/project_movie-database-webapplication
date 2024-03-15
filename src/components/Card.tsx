@@ -23,15 +23,15 @@ const Card = ({  item }: CardProps) => {
         />
 
         <div className="p-4 -0">
-          <div className="table w-full">
+          {/* <div className="table w-full"> */}
            
-              <h3 className="text-xl	 m-0 table-cell text-left text-onSurfaceVariant">
+              <h3 className="text-xl	 m-0 table-cell text-left text-onSurfaceVariant whitespace-nowrap ">
                 {item?.original_title}
               </h3>
           
             <p className="block text-xs text-onSurfaceVariant"> {item?.release_date}</p>
-            <div className="imax-logo"></div>
-          </div>
+          
+          {/* </div> */}
         </div>
       </div>
     </>
