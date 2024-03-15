@@ -5,14 +5,12 @@ const Error = () => {
   const navigate = useNavigate();
   return (
     <main className="flex h-full w-full flex-col bg-background">
-  
       <div className=" grow flex align-center justify-around align-center">
         <div className="grid grid-cols-12">
           <div className="col-span-6 col-start-4">
             <div className="flex-col gap-x-8	md:flex-row	justify-center">
-
               <div className="ml-4 flex flex-col align-center">
-              <img src={PageNotFoundImg} height={"220"} alt="not-found-img" />
+                <img src={PageNotFoundImg} height={"220"} alt="not-found-img" />
                 <h1
                   className="font-semibold text-onSurface text-center"
                   style={{ fontSize: "6.5rem", lineHeight: "130%" }}
@@ -31,17 +29,14 @@ const Error = () => {
                   }
                 </p>
                 <button
-  type="button"
-  className="text-white mt-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 inline-block mx-auto"
-  onClick={() => {
-    navigate("/");
-  }}
->
-  Go to Home
-</button>
-
-
-                
+                  type="button"
+                  className="text-white mt-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 inline-block mx-auto"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  Go to Home
+                </button>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import ApiRequest from "../../api-request/api-request";
 import { MovieDetailsById } from "./movieDetail.schema";
+import { HeaderSearchResponse } from "../../components/Header/header.schema";
 
 const movieDetail = {
   getMovieById: {
@@ -34,7 +35,7 @@ export const useGetTrendingMovies = () => {
   return useQuery({
     queryKey: [movieDetail.getTrendingMovies.actionName],
     queryFn() {
-      return ApiRequest<any>({
+      return ApiRequest<HeaderSearchResponse>({
         apiDetails: movieDetail.getTrendingMovies,
       });
     },

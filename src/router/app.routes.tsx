@@ -3,6 +3,8 @@ import MovieDetail from "../core/MovieDetails/MovieDetail";
 import Home from "../core/HomePage/Home";
 import Error from "../components/Error";
 import Layout from "../core/Layout";
+import TopRatedListAll from "../core/TopRated/TopRatedListAll";
+import UpcomingMovieList from "../core/Upcoming/UpcomingMovieList";
 
 export const router = createBrowserRouter([
   {
@@ -16,5 +18,13 @@ export const router = createBrowserRouter([
         element: <MovieDetail />,
       },
     ],
+  },
+  {
+    path: "/top-rated",
+    element: <TopRatedListAll />,
+  },
+  {
+    path: "/upcoming-movies",
+    element: <UpcomingMovieList />,
   },
 ]);

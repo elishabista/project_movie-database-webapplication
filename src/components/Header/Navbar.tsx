@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import HeaderSearchInput from "./HeaderSearchInput";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -49,11 +52,31 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                className={`block py-2 px-3 rounded md:bg-transparent text-primary md:p-0   hover:text-blue-700 active:text-blue-700`}
                 aria-current="page"
+                onClick={() => setIsActive(!isActive)}
               >
                 GENRE
               </a>
+            </li>
+
+            <li>
+              <Link
+                to={"/upcoming-movies"}
+                className={`block py-2 px-3  md:bg-transparent  md:p-0  text-onSurfaceVariant hover:text-blue-700 active:text-blue-700`}
+                aria-current="page"
+              >
+                UPCOMING MOVIE
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/top-rated"}
+                className="block py-2 px-3  rounded md:bg-transparent  md:p-0 text-onSurfaceVariant hover:text-blue-700 active:text-blue-700`}"
+                aria-current="page"
+              >
+                TOP RATED
+              </Link>
             </li>
           </ul>
         </div>

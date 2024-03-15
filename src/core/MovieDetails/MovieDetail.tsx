@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   useGetMovieDetailsById,
   useGetTrendingMovies,
@@ -9,17 +9,18 @@ import Spinner from "../../components/Spinner";
 
 const MovieDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data, isLoading } = useGetMovieDetailsById(id ?? "");
   const { data: trendingMoviesData } = useGetTrendingMovies();
-  console.log(data);
-   const convertRuntime = (runtime)=>{
+  const convertRuntime = (runtime) => {
     const hours = Math.floor(runtime / 60);
     const minutes = runtime % 60;
     return `${hours}h ${minutes}m`;
+  };
 
+  const randomNum = Math.floor(Math.random() * 15);
 
-   }
   if (isLoading) {
     return <Spinner />;
   }
@@ -27,9 +28,9 @@ const MovieDetail = () => {
     <>
       <div className="p-6">
         <div className="grid grid-cols-3 gap-4">
-          <div className=" p-4 col-span-2">
+          <div className=" p-4 col-span-3 md:col-span-2">
             <img
-              src={`${imageUrlSmall}${data?.poster_path}`}
+              src={`${imageUrlSmall}${data?.backdrop_path}`}
               alt="Movie Image"
               className="object-cover object-center w-full h-[600px]"
             />
@@ -52,10 +53,7 @@ const MovieDetail = () => {
                 </p>
 
                 <div className="flex mt-2">
-                  <p className="text-white mr-4 text-sm	">
-                   
-                   Genres:
-                  </p>
+                  <p className="text-white mr-4 text-sm	">Genres:</p>
                   {data?.genres?.map((item) => {
                     return (
                       <span
@@ -76,25 +74,28 @@ const MovieDetail = () => {
                   </span>
                 </div>
                 <p className="mt-2 text-white text-xs">
-                  {" "}
                   Release Date: {data?.release_date}
                 </p>
                 <p className="mt-2 text-white text-xs">
-                  {" "}
                   Can be seen By: {data?.adult ? "Adult" : "All"}
                 </p>
                 <p className="mt-2 text-white text-xs">
-                  
                   Run Time: {convertRuntime(data?.runtime)}
                 </p>
               </div>
             </a>
           </div>
-          <div className="bg-wrapperCard p-2 rounded-3xl ">
+          <div className="bg-wrapperCard col-span-3 md:col-span-1 p-2 rounded-3xl ">
             <h1 className="text-onSurfaceVariant text-center mb-2">TRENDING</h1>
-            {trendingMoviesData?.results?.slice(0, 3)?.map((item) => {
+            <div className="flex flex-row gap-4 flex-wrap md:flex-col">
+            {trendingMoviesData?.results?.slice(randomNum, randomNum+3)?.map((item) => {
               return (
-                <div className="bg-surface shadow-md p-4 rounded-lg inline-block w-full hover:cursor-pointer">
+                <div
+                  className="bg-surface shadow-md p-4 rounded-lg inline-block w-full hover:cursor-pointer"
+                  onClick={() =>
+                    navigate(`/movie/${item?.id}`)
+                  }
+                >
                   <img
                     src={`${imageUrlSmall}${item?.poster_path}`}
                     alt="Movie Image"
@@ -108,7 +109,6 @@ const MovieDetail = () => {
                       </h3>
 
                       <p className="block text-xs text-onSurfaceVariant">
-                        {" "}
                         {item?.release_date}
                       </p>
                     </div>
@@ -116,6 +116,7 @@ const MovieDetail = () => {
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>

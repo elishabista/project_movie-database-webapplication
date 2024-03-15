@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { HeaderSearchResponse } from "./header.schema";
-import ApiRequest from "../api-request/api-request";
+import ApiRequest from "../../api-request/api-request";
+
 
  const getSearchMovieByValue = {
     controllerName: "/search/movie",
