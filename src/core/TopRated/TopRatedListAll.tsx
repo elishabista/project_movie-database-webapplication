@@ -3,6 +3,7 @@ import Card from "../../components/Card";
 import { useGetTopRatedMovies } from "../HomePage/Components/home.query";
 import Pagination from "../../components/Pagination";
 
+
 const TopRatedListAll = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const { data } = useGetTopRatedMovies(currentPage);
