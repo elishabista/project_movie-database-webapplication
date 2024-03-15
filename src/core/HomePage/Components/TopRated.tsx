@@ -3,6 +3,7 @@ import Card from "../../../components/Card";
 import Carousel from "../../../components/Carousel";
 import { useGetTopRatedMovies } from "./home.query";
 
+
 const TopRated = () => {
   const { data } = useGetTopRatedMovies();
 
@@ -33,6 +34,7 @@ const TopRated = () => {
           );
         })}
       </Carousel>
+     
     </div>
   );
 };

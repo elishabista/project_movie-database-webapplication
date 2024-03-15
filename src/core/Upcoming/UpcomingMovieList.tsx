@@ -2,6 +2,7 @@ import  { useState } from 'react'
 import Card from '../../components/Card';
 import Pagination from '../../components/Pagination';
 import { useGetUpcomingMovies } from '../HomePage/Components/home.query';
+import Footer from '../../components/Footer/Footer';
 
 const UpcomingMovieList = () => {
     const [currentPage, setCurrentPage] = useState(1)
@@ -24,6 +25,7 @@ const UpcomingMovieList = () => {
         }}
       />
     )}
+    <Footer />
   </div>
   )
 }
