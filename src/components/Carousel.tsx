@@ -1,4 +1,4 @@
-import  { FC } from "react";
+import React, { FC } from "react";
 import { Swiper, SwiperProps, SwiperSlide, SwiperSlideProps } from "swiper/react";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper";
 

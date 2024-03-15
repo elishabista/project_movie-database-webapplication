@@ -6,18 +6,18 @@ interface CardProps {
   item: Result;
 }
 
-const Card = ({  item }: CardProps) => {
+const Card = ({ item }: CardProps) => {
   const navigate = useNavigate();
   return (
     <>
       <div
-        className="bg-surface shadow-md p-4 rounded-lg inline-block w-[260px] hover:cursor-pointer"
+        className="bg-surface shadow-md p-4 rounded-lg inline-block w-[260px] hover:cursor-pointer overflow-hidden"
         onClick={() =>
           navigate(`/movie/${item?.id}`, { state: { movieDetails: item } })
         }
       >
         <img
-          src={`${imageUrlSmall}${item?.poster_path}`}
+          src={`${imageUrlSmall}${item?.poster_path ?? item?.backdrop_path}`}
           alt="Movie Image"
           className="h-64	m-auto"
         />

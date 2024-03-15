@@ -8,8 +8,8 @@ const Upcoming = () => {
   console.log(data, "upcoming");
   return (
     <div className="bg-wrapperCard rounded-3xl mt-6">
-      <div className="flex justify-between">
-        <h1 className="text-onSurfaceVariant text-center my-4">
+     <div className="flex justify-between align-items px-10 my-4">
+        <h1 className="text-onSurfaceVariant text-center">
           UPCOMING MOVIE
         </h1>
         <Link to={"/upcoming-movies"}>

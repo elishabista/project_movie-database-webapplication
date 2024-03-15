@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { imageUrlSmall } from "../../constatnts/constants";
 import useDebounce from "../../hooks/useDebounce";
+import Spinner from "../Spinner";
 
 
 interface Props {
@@ -55,7 +56,7 @@ const HeaderSearchInput = forwardRef<HTMLInputElement, Props>(
               <Combobox.Options className="text-md absolute top-16 z-50 mt-1 max-h-[500px] w-full overflow-auto rounded-md bg-surface p-4 py-3 text-onSurface shadow-card-lg focus:outline-none sm:w-[340px] xxl:w-[544px]">
                 {debouncedValue ? (
                   isLoading ? (
-                    "Loading..."
+                    <Spinner />
                   ) : searchData?.results.length ? (
                     <div className="flex flex-col gap-1">
                       {searchData?.results.map((item) => {

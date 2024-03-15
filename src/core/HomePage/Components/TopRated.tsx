@@ -9,8 +9,8 @@ const TopRated = () => {
 
   return (
     <div className="bg-wrapperCard p-2 rounded-3xl mt-6">
-      <div className="flex justify-between">
-        <h1 className="text-onSurfaceVariant text-center my-4">TOP RATED</h1>
+      <div className="flex justify-between align-items px-10 my-4">
+        <h1 className="text-onSurfaceVariant text-center">TOP RATED</h1>
         <Link to={"/top-rated"}>
           <p className="text-white cursor-pointer underline">View All</p>
         </Link>
